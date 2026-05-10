@@ -8,7 +8,6 @@ import FeaturedMovies from "../components/FeaturedMovies";
 import Footer from "../components/Footer";
 
 import { fetchMovies } from "../services/api";
-import NewMoviesSwiper from "../components/NewMovies";
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -56,7 +55,7 @@ function Home() {
 
           <HeroSlider movies={movies.slice(0, 5)} />
 
-          <NewMoviesSwiper />
+          <NewMovies />
 
           <FeaturedMovies movies={movies.slice(5, 15)} />
 
