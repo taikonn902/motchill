@@ -9,6 +9,10 @@ import {
   useState,
 } from "react";
 
+import {
+  Link,
+} from "react-router-dom";
+
 function Navbar() {
 
   const [showMenu, setShowMenu] = useState(false);
@@ -36,109 +40,421 @@ function Navbar() {
           flex
           items-center
           justify-between
+          gap-10
         ">
 
           {/* LEFT */}
           <div className="
-  flex
-  items-center
-  justify-between
-  w-full
-">
+            flex
+            items-center
+            justify-between
+            w-full
+          ">
 
-  {/* LOGO */}
-  <div className="cursor-pointer leading-none">
+            {/* LOGO */}
+            <Link
+              to="/"
+              className="
+                cursor-pointer
+                flex
+                items-center
+                gap-3
+                shrink-0
+              "
+            >
 
-    <h1 className="
-      text-[30px]
-      md:text-[38px]
-      font-black
-    ">
+              {/* ICON */}
+              <div className="
+                w-[42px]
+                h-[42px]
+                md:w-[50px]
+                md:h-[50px]
+                rounded-xl
+                bg-gradient-to-br
+                from-[#f5c16c]
+                to-[#d89b6d]
+                flex
+                items-center
+                justify-center
+                shadow-lg
+              ">
 
-      <span className="text-[#f5c16c]">
-        MOT
-      </span>
+                <span className="
+                  text-black
+                  text-[22px]
+                  md:text-[26px]
+                  font-black
+                ">
+                  F
+                </span>
 
-      <span className="text-white">
-        CHILL
-      </span>
+              </div>
 
-    </h1>
+              {/* TEXT */}
+              <div className="leading-none">
 
-    <span className="
-      text-[8px]
-      md:text-[10px]
-      tracking-[4px]
-      md:tracking-[6px]
-      text-[#f5c16c]
-    ">
-      PHIM ONLINE
-    </span>
+                <h1 className="
+                  text-[22px]
+                  sm:text-[26px]
+                  md:text-[30px]
+                  lg:text-[34px]
+                  font-extrabold
+                  tracking-wide
+                ">
 
-  </div>
+                  <span className="text-white">
+                    Films
+                  </span>
 
-  {/* DESKTOP MENU */}
-  <nav className="
-    hidden
-    xl:flex
-    items-center
-    gap-8
-    text-gray-200
-  ">
+                  <span className="text-[#f5c16c]">
+                    Chill
+                  </span>
 
-    <a href="/">
-      Motchill
-    </a>
+                </h1>
 
-    <a href="/">
-      Phim bộ
-    </a>
+                <span className="
+                  text-[8px]
+                  md:text-[9px]
+                  uppercase
+                  tracking-[5px]
+                  text-gray-400
+                  font-medium
+                ">
+                  Movie Streaming
+                </span>
 
-    <a href="/">
-      Phim lẻ
-    </a>
+              </div>
 
-    <div className="
-      flex
-      items-center
-      gap-1
-    ">
-      <span>Thể loại</span>
-      <FiChevronDown />
-    </div>
+            </Link>
 
-    <div className="
-      flex
-      items-center
-      gap-1
-    ">
-      <span>Quốc gia</span>
-      <FiChevronDown />
-    </div>
+            {/* DESKTOP MENU */}
+            <nav className="
+              hidden
+              xl:flex
+              items-center
+              gap-8
+              text-[15px]
+              xl:text-[16px]
+              text-gray-200
+              font-medium
+            ">
 
-    <div className="
-      flex
-      items-center
-      gap-1
-    ">
-      <span>Khác</span>
-      <FiChevronDown />
-    </div>
+              {/* HOME */}
+              <Link
+                to="/"
+                className="
+                  hover:text-[#f5c16c]
+                  transition
+                "
+              >
+                Trang chủ
+              </Link>
 
-  </nav>
+              {/* PHIM BO */}
+              <Link
+                to="/"
+                className="
+                  hover:text-[#f5c16c]
+                  transition
+                "
+              >
+                Phim bộ
+              </Link>
 
-  {/* MOBILE MENU BTN */}
-  <button
-    onClick={() => setShowMenu(true)}
-    className="
-      xl:hidden
-      text-white
-    "
-  >
-    <FiMenu size={28} />
-  </button>
+              {/* PHIM LE */}
+              <Link
+                to="/"
+                className="
+                  hover:text-[#f5c16c]
+                  transition
+                "
+              >
+                Phim lẻ
+              </Link>
 
-</div>
+              {/* THE LOAI */}
+              <div className="
+                relative
+                group
+              ">
+
+                <div className="
+                  flex
+                  items-center
+                  gap-1
+                  cursor-pointer
+                  hover:text-[#f5c16c]
+                  transition
+                ">
+
+                  <span>
+                    Thể loại
+                  </span>
+
+                  <FiChevronDown
+                    className="
+                      transition
+                      duration-300
+                      group-hover:rotate-180
+                    "
+                  />
+
+                </div>
+
+                {/* SUBMENU */}
+                <div className="
+                  absolute
+                  top-[40px]
+                  left-0
+                  w-[340px]
+                  bg-[#1a1a1a]
+                  border
+                  border-[#2a2a2a]
+                  rounded-xl
+                  p-3
+                  opacity-0
+                  invisible
+                  translate-y-3
+                  group-hover:opacity-100
+                  group-hover:visible
+                  group-hover:translate-y-0
+                  transition-all
+                  duration-300
+                  shadow-2xl
+                ">
+
+                  <div className="
+                    grid
+                    grid-cols-2
+                    gap-2
+                    w-full
+                  ">
+
+                    {[
+                      "Hành động",
+                      "Anime",
+                      "Tình cảm",
+                      "Kinh dị",
+                      "Viễn tưởng",
+                      "Hài hước",
+                    ].map((item) => (
+
+                      <Link
+                        key={item}
+                        to="/"
+                        className="
+                          w-full
+                          block
+                          px-4
+                          py-3
+                          rounded-lg
+                          hover:bg-[#2a2a2a]
+                          hover:text-[#f5c16c]
+                          transition
+                        "
+                      >
+                        {item}
+                      </Link>
+
+                    ))}
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* QUOC GIA */}
+              <div className="
+                relative
+                group
+              ">
+
+                <div className="
+                  flex
+                  items-center
+                  gap-1
+                  cursor-pointer
+                  hover:text-[#f5c16c]
+                  transition
+                ">
+
+                  <span>
+                    Quốc gia
+                  </span>
+
+                  <FiChevronDown
+                    className="
+                      transition
+                      duration-300
+                      group-hover:rotate-180
+                    "
+                  />
+
+                </div>
+
+                {/* SUBMENU */}
+                <div className="
+                  absolute
+                  top-[40px]
+                  left-0
+                  w-[220px]
+                  bg-[#1a1a1a]
+                  border
+                  border-[#2a2a2a]
+                  rounded-xl
+                  p-3
+                  opacity-0
+                  invisible
+                  translate-y-3
+                  group-hover:opacity-100
+                  group-hover:visible
+                  group-hover:translate-y-0
+                  transition-all
+                  duration-300
+                  shadow-2xl
+                ">
+
+                  <div className="
+                    flex
+                    flex-col
+                    gap-1
+                  ">
+
+                    {[
+                      "Việt Nam",
+                      "Hàn Quốc",
+                      "Trung Quốc",
+                      "Nhật Bản",
+                    ].map((item) => (
+
+                      <Link
+                        key={item}
+                        to="/"
+                        className="
+                          w-full
+                          block
+                          px-4
+                          py-3
+                          rounded-lg
+                          hover:bg-[#2a2a2a]
+                          hover:text-[#f5c16c]
+                          transition
+                        "
+                      >
+                        {item}
+                      </Link>
+
+                    ))}
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* KHAC */}
+              <div className="
+                relative
+                group
+              ">
+
+                <div className="
+                  flex
+                  items-center
+                  gap-1
+                  cursor-pointer
+                  hover:text-[#f5c16c]
+                  transition
+                ">
+
+                  <span>
+                    Khác
+                  </span>
+
+                  <FiChevronDown
+                    className="
+                      transition
+                      duration-300
+                      group-hover:rotate-180
+                    "
+                  />
+
+                </div>
+
+                {/* SUBMENU */}
+                <div className="
+                  absolute
+                  top-[40px]
+                  left-0
+                  w-[240px]
+                  bg-[#1a1a1a]
+                  border
+                  border-[#2a2a2a]
+                  rounded-xl
+                  p-3
+                  opacity-0
+                  invisible
+                  translate-y-3
+                  group-hover:opacity-100
+                  group-hover:visible
+                  group-hover:translate-y-0
+                  transition-all
+                  duration-300
+                  shadow-2xl
+                ">
+
+                  <div className="
+                    flex
+                    flex-col
+                    gap-1
+                  ">
+
+                    {[
+                      "Top IMDb",
+                      "Phim chiếu rạp",
+                      "Sắp ra mắt",
+                    ].map((item) => (
+
+                      <Link
+                        key={item}
+                        to="/"
+                        className="
+                          w-full
+                          block
+                          px-4
+                          py-3
+                          rounded-lg
+                          hover:bg-[#2a2a2a]
+                          hover:text-[#f5c16c]
+                          transition
+                        "
+                      >
+                        {item}
+                      </Link>
+
+                    ))}
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </nav>
+
+            {/* MOBILE MENU BTN */}
+            <button
+              onClick={() => setShowMenu(true)}
+              className="
+                xl:hidden
+                text-white
+              "
+            >
+              <FiMenu size={28} />
+            </button>
+
+          </div>
 
           {/* SEARCH */}
           <div className="
@@ -162,6 +478,8 @@ function Navbar() {
                 pr-12
                 text-white
                 outline-none
+                focus:border-[#f5c16c]
+                transition
               "
             />
 
@@ -181,163 +499,109 @@ function Navbar() {
         </div>
       </header>
 
-      {/* MOBILE SIDEBAR */}
       {/* MOBILE MENU */}
-<div className={`
-  fixed
-  top-0
-  right-0
-  w-full
-  h-screen
-  bg-[#111]
-  z-[999]
-  transition-all
-  duration-300
-  p-6
-
-  ${showMenu
-    ? "translate-x-0"
-    : "translate-x-full"
-  }
-`}>
-
-  {/* TOP */}
-  <div className="
-    flex
-    items-center
-    justify-between
-    mb-14
-  ">
-
-    {/* LOGO */}
-    <div className="leading-none">
-
-      <h1 className="
-        text-[34px]
-        font-black
-      ">
-
-        <span className="text-[#f5c16c]">
-          MOT
-        </span>
-
-        <span className="text-white">
-          CHILL
-        </span>
-
-      </h1>
-
-      <span className="
-        text-[9px]
-        tracking-[5px]
-        text-[#f5c16c]
-      ">
-        PHIM ONLINE
-      </span>
-
-    </div>
-
-    {/* CLOSE */}
-    <button
-      onClick={() => setShowMenu(false)}
-      className="
-        text-white
-      "
-    >
-      <FiX size={32} />
-    </button>
-
-  </div>
-
-  {/* SEARCH */}
-  <div className="relative mb-10">
-
-    <input
-      type="text"
-      placeholder="Tìm kiếm..."
-      className="
+      <div className={`
+        fixed
+        top-0
+        right-0
         w-full
-        h-[50px]
-        bg-[#1d1d1d]
-        border
-        border-[#2a2a2a]
-        rounded-md
-        px-4
-        pr-12
-        text-white
-        outline-none
-      "
-    />
+        h-screen
+        bg-[#111]
+        z-[999]
+        transition-all
+        duration-300
+        p-6
 
-    <FiSearch
-      size={20}
-      className="
-        absolute
-        top-1/2
-        right-4
-        -translate-y-1/2
-        text-gray-400
-      "
-    />
+        ${showMenu
+          ? "translate-x-0"
+          : "translate-x-full"
+        }
+      `}>
 
-  </div>
+        {/* TOP */}
+        <div className="
+          flex
+          items-center
+          justify-between
+          mb-14
+        ">
 
-  {/* MENU */}
-  <nav className="
-    flex
-    flex-col
-    gap-8
-    text-[24px]
-    font-semibold
-  ">
+          {/* LOGO */}
+          <Link
+            to="/"
+            onClick={() => setShowMenu(false)}
+            className="
+              flex
+              items-center
+              gap-3
+            "
+          >
 
-    <a
-      href="/"
-      onClick={() => setShowMenu(false)}
-    >
-      Motchill
-    </a>
+            <div className="
+              w-[45px]
+              h-[45px]
+              rounded-xl
+              bg-gradient-to-br
+              from-[#f5c16c]
+              to-[#d89b6d]
+              flex
+              items-center
+              justify-center
+            ">
 
-    <a
-      href="/"
-      onClick={() => setShowMenu(false)}
-    >
-      Phim bộ
-    </a>
+              <span className="
+                text-black
+                text-[24px]
+                font-black
+              ">
+                F
+              </span>
 
-    <a
-      href="/"
-      onClick={() => setShowMenu(false)}
-    >
-      Phim lẻ
-    </a>
+            </div>
 
-    <a
-      href="/"
-      onClick={() => setShowMenu(false)}
-    >
-      Thể loại
-    </a>
+            <div className="leading-none">
 
-    <a
-      href="/"
-      onClick={() => setShowMenu(false)}
-    >
-      Quốc gia
-    </a>
+              <h1 className="
+                text-[30px]
+                font-extrabold
+              ">
 
-    <a
-      href="/"
-      onClick={() => setShowMenu(false)}
-    >
-      Khác
-    </a>
+                <span className="text-white">
+                  Films
+                </span>
 
-  </nav>
+                <span className="text-[#f5c16c]">
+                  Chill
+                </span>
 
-</div>
+              </h1>
 
-      
+              <span className="
+                text-[8px]
+                uppercase
+                tracking-[4px]
+                text-gray-400
+              ">
+                Movie Streaming
+              </span>
+
+            </div>
+
+          </Link>
+
+          {/* CLOSE */}
+          <button
+            onClick={() => setShowMenu(false)}
+            className="text-white"
+          >
+            <FiX size={32} />
+          </button>
+
+        </div>
+
+      </div>
+
+      {/* OVERLAY */}
       {showMenu && (
 
         <div

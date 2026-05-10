@@ -53,51 +53,73 @@ function MovieDetail() {
       <div className="
         max-w-[1400px]
         mx-auto
-        pt-[100px]
-        px-5
+        pt-[90px]
+        md:pt-[100px]
+        px-4
+        md:px-5
         grid
-        grid-cols-12
+        grid-cols-1
+        lg:grid-cols-12
         gap-8
       ">
 
         {/* LEFT */}
-        <div className="col-span-9">
+        <div className="lg:col-span-9">
 
           {/* INFO */}
           <div className="
             bg-[#1d1d1d]
             border
             border-[#2a2a2a]
-            p-6
+            p-4
+            md:p-6
+            rounded-xl
           ">
 
-            <div className="flex gap-6">
+            <div className="
+              flex
+              flex-col
+              md:flex-row
+              gap-6
+            ">
 
               {/* POSTER */}
               <img
                 src={movie.image?.original}
                 alt=""
                 className="
-                  w-[220px]
-                  h-[320px]
+                  w-full
+                  md:w-[240px]
+                  lg:w-[260px]
+                  h-[420px]
+                  md:h-[340px]
+                  lg:h-[380px]
                   object-cover
-                  rounded-md
+                  rounded-lg
                 "
               />
 
               {/* CONTENT */}
               <div className="flex-1">
 
+                {/* TITLE */}
                 <h1 className="
-                  text-5xl
+                  text-[28px]
+                  sm:text-[34px]
+                  md:text-[40px]
+                  lg:text-[52px]
                   font-bold
+                  leading-tight
                   mb-3
                 ">
                   {movie.name}
                 </h1>
 
+                {/* GENRES */}
                 <p className="
-                  text-2xl
+                  text-[15px]
+                  md:text-[18px]
+                  lg:text-[22px]
                   text-gray-300
                   mb-5
                 ">
@@ -107,9 +129,13 @@ function MovieDetail() {
                 {/* META */}
                 <div className="
                   flex
-                  gap-10
+                  flex-wrap
+                  gap-x-6
+                  gap-y-3
+                  text-[14px]
+                  md:text-[16px]
                   text-gray-400
-                  mb-5
+                  mb-6
                 ">
 
                   <span>
@@ -128,13 +154,16 @@ function MovieDetail() {
 
                 {/* BUTTON */}
                 <button className="
+                  w-full
+                  sm:w-auto
                   bg-[#d89b6d]
                   hover:bg-[#c78658]
                   px-8
                   py-4
-                  rounded-md
+                  rounded-lg
                   font-semibold
-                  text-lg
+                  text-[15px]
+                  md:text-lg
                   transition
                 ">
                   Xem Phim
@@ -145,7 +174,10 @@ function MovieDetail() {
                   className="
                     mt-8
                     text-gray-300
-                    leading-8
+                    leading-7
+                    md:leading-8
+                    text-[14px]
+                    md:text-[16px]
                   "
                   dangerouslySetInnerHTML={{
                     __html: movie.summary
@@ -163,11 +195,14 @@ function MovieDetail() {
             bg-[#1d1d1d]
             border
             border-[#2a2a2a]
-            p-6
+            p-4
+            md:p-6
+            rounded-xl
           ">
 
             <h2 className="
-              text-3xl
+              text-[24px]
+              md:text-[32px]
               font-bold
               mb-6
             ">
@@ -175,8 +210,11 @@ function MovieDetail() {
             </h2>
 
             <div className="
-              flex
-              flex-wrap
+              grid
+              grid-cols-3
+              sm:grid-cols-4
+              md:grid-cols-5
+              lg:grid-cols-6
               gap-3
             ">
 
@@ -188,9 +226,11 @@ function MovieDetail() {
                     bg-[#2a2a2a]
                     hover:bg-[#d89b6d]
                     transition
-                    px-5
                     py-3
                     rounded-md
+                    text-[14px]
+                    md:text-[15px]
+                    font-medium
                   "
                 >
                   Tập {index + 1}
@@ -205,10 +245,11 @@ function MovieDetail() {
         </div>
 
         {/* RIGHT */}
-        <div className="col-span-3">
+        <div className="lg:col-span-3">
 
           <h2 className="
-            text-3xl
+            text-[24px]
+            md:text-[32px]
             font-bold
             mb-6
           ">
@@ -223,10 +264,12 @@ function MovieDetail() {
                 key={item.id}
                 className="
                   relative
-                  h-[140px]
+                  h-[120px]
+                  md:h-[140px]
                   overflow-hidden
-                  rounded-md
+                  rounded-xl
                   cursor-pointer
+                  group
                 "
               >
 
@@ -237,26 +280,39 @@ function MovieDetail() {
                     w-full
                     h-full
                     object-cover
+                    transition
+                    duration-500
+                    group-hover:scale-110
                   "
                 />
 
                 <div className="
                   absolute
                   inset-0
-                  bg-black/40
+                  bg-black/50
                 " />
 
                 <div className="
                   absolute
                   bottom-4
                   left-4
+                  right-4
                 ">
 
-                  <h3 className="font-semibold text-lg">
+                  <h3 className="
+                    font-semibold
+                    text-[16px]
+                    md:text-[18px]
+                    line-clamp-1
+                  ">
                     {item.name}
                   </h3>
 
-                  <p className="text-gray-300">
+                  <p className="
+                    text-gray-300
+                    text-[13px]
+                    md:text-[15px]
+                  ">
                     2026
                   </p>
 

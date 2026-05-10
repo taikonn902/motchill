@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import HeroSlider from "../components/HeroSlider";
 import SidebarMovie from "../components/SidebarMovie";
 import FeaturedMovies from "../components/FeaturedMovies";
+import Footer from "../components/Footer";
 
 import { fetchMovies } from "../services/api";
 
@@ -88,8 +89,10 @@ function Home() {
         </div>
 
       </div>
-
+      <Footer />
     </div>
+
+
   );
 }
 
