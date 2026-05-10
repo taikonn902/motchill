@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  background: #111;
+  color: white;
+  font-family: sans-serif;
+}
+.hero-slider .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.hero-slider .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #777;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.hero-slider .swiper-pagination-bullet-active {
+  width: 35px;
+  border-radius: 20px;
+  background: white;
+}
