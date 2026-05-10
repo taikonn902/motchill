@@ -33,10 +33,11 @@ Dùng TMDB API, tạo file .env:
 VITE_TMDB_API_KEY=your_api_key
 
 ## **Cấu trúc dự án**
+
 src/
  ├── components/   # UI components
  ├── pages/        # Pages (Home, Detail, Search)
  ├── api/          # Call API
  ├── hooks/        # Custom hooks
  ├── assets/       # Images, icons
- └── App.jsx
+ └── App.js
