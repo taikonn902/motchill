@@ -1,12 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import {
-  Pagination,
-  Autoplay,
-} from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
+
+const IMAGE_BASE = "https://image.tmdb.org/t/p/original";
 
 function HeroSlider({ movies }) {
   return (
@@ -17,7 +16,7 @@ function HeroSlider({ movies }) {
         spaceBetween={20}
         loop={true}
         autoplay={{
-          delay: 3000,
+          delay: 2000,
         }}
         pagination={{
           clickable: true,
@@ -46,10 +45,14 @@ function HeroSlider({ movies }) {
               group
             ">
 
-              {/* IMAGE */}
+              {/* IMAGE (FIXED) */}
               <img
-                src={movie.image?.original}
-                alt=""
+                src={
+                  movie.backdrop_path
+                    ? `${IMAGE_BASE}${movie.backdrop_path}`
+                    : "https://via.placeholder.com/500"
+                }
+                alt={movie.title}
                 className="
                   w-full
                   h-full
@@ -70,7 +73,7 @@ function HeroSlider({ movies }) {
                 to-transparent
               " />
 
-              {/* INFO */}
+              {/* INFO (FIXED) */}
               <div className="
                 absolute
                 bottom-5
@@ -82,19 +85,19 @@ function HeroSlider({ movies }) {
                   font-bold
                   mb-2
                 ">
-                  {movie.name}
+                  {movie.title}
                 </h2>
 
                 <p className="
                   text-gray-300
                   text-xl
                 ">
-                  2026
+                  {movie.release_date?.slice(0, 4) || "2026"}
                 </p>
 
               </div>
 
-              {/* TAG */}
+              {/* TAG (GIỮ NGUYÊN UI) */}
               <div className="
                 absolute
                 bottom-5

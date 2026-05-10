@@ -1,132 +1,67 @@
-// src/components/MovieCard.jsx
-
-import {
-  FiPlay,
-  FiStar,
-} from "react-icons/fi";
-
-import {
-  Link,
-} from "react-router-dom";
+import { FiPlay, FiStar } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { getImage } from "../services/api";
 
 function MovieCard({ movie }) {
   return (
-
-    <Link
-      to={`/movie/${movie.id}`}
-      className="block"
-    >
+    <Link to={`/movie/${movie.id}`} className="block">
 
       <div className="group cursor-pointer">
 
         {/* IMAGE */}
-        <div className="
-          relative
-          overflow-hidden
-          rounded-md
-        ">
+        <div className="relative overflow-hidden rounded-md">
 
-          {/* POSTER */}
           <img
-            src={movie.image?.medium}
-            alt=""
+            src={getImage(movie.poster_path || movie.backdrop_path)}
+            alt={movie.title}
             className="
               w-full
               h-[240px]
               md:h-[340px]
               object-cover
-              transition
-              duration-500
+              transition duration-500
               group-hover:scale-110
               group-hover:blur-[2px]
               group-hover:brightness-50
             "
           />
 
-          {/* PLAY ICON */}
+          {/* PLAY */}
           <div className="
-            absolute
-            inset-0
-            flex
-            items-center
-            justify-center
-            opacity-0
-            group-hover:opacity-100
-            transition
-            duration-300
+            absolute inset-0 flex items-center justify-center
+            opacity-0 group-hover:opacity-100 transition
           ">
-
             <div className="
-              w-[55px]
-              h-[55px]
-              md:w-[80px]
-              md:h-[80px]
-              rounded-full
-              border-4
-              border-white
-              flex
-              items-center
-              justify-center
+              w-[55px] h-[55px]
+              md:w-[80px] md:h-[80px]
+              rounded-full border-4 border-white
+              flex items-center justify-center
             ">
-
-              <FiPlay
-                size={38}
-                className="text-white ml-1"
-              />
-
+              <FiPlay size={38} className="text-white ml-1" />
             </div>
-
           </div>
 
-          {/* TOP TAG */}
+          {/* TAG */}
           <div className="
-            absolute
-            top-0
-            left-0
+            absolute top-0 left-0
             bg-[#d89b6d]
-            text-white
-            text-sm
-            px-3
-            py-1
-            font-semibold
+            text-white text-sm
+            px-3 py-1 font-semibold
           ">
             NỔI BẬT
           </div>
 
-          {/* EP */}
+          {/* ⭐ RATING (FIXED) */}
           <div className="
-            absolute
-            bottom-2
-            left-2
-            bg-[#3b82f6]
-            text-white
-            text-sm
-            px-3
-            py-1
-            font-semibold
-          ">
-            TẬP 5
-          </div>
-
-          {/* RATING */}
-          <div className="
-            absolute
-            bottom-2
-            right-2
-            bg-black/70
-            text-white
-            px-3
-            py-1
-            flex
-            items-center
-            gap-1
-            text-sm
+            absolute bottom-2 right-2
+            bg-black/70 text-white
+            px-3 py-1 flex items-center gap-1 text-sm
           ">
 
-            <FiStar className="fill-white" />
+            <FiStar className="fill-yellow-400 text-yellow-400" />
 
             <span>
-              9.8
+              {movie.vote_average?.toFixed(1) || "0"}
             </span>
 
           </div>
@@ -136,20 +71,12 @@ function MovieCard({ movie }) {
         {/* INFO */}
         <div className="mt-4">
 
-          <h3 className="
-            text-[20px]
-            font-semibold
-            line-clamp-1
-          ">
-            {movie.name}
+          <h3 className="text-[20px] font-semibold line-clamp-1">
+            {movie.title}
           </h3>
 
-          <p className="
-            text-gray-400
-            text-lg
-            line-clamp-1
-          ">
-            {movie.genres?.[0]} 2026
+          <p className="text-gray-400 text-lg line-clamp-1">
+            {movie.release_date?.slice(0, 4) || "N/A"}
           </p>
 
         </div>
