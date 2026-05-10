@@ -5,19 +5,8 @@ Dự án lấy cảm hứng từ các nền tảng xem phim online, cung cấp g
 
 ---
 
-## 🚀 Demo
+## Demo
 > https://filmchill.vercel.app/
-
----
-
-## ✨ Tính năng chính
-
-- 🔎 Tìm kiếm phim theo tên
-- 🎥 Xem danh sách phim mới / phổ biến
-- 📄 Xem chi tiết phim (overview, rating, poster)
-- 🎞️ Xem trailer (nếu API hỗ trợ)
-- 📱 Responsive trên mobile & desktop
-- ⚡ Giao diện nhanh, tối ưu UX/UI
 
 ---
 
@@ -32,11 +21,12 @@ Dự án lấy cảm hứng từ các nền tảng xem phim online, cung cấp g
 
 ---
 
-## 📦 Cài đặt & chạy dự án
+## Cài đặt & chạy dự án
 
 Clone project:
 ```bash
 git clone https://github.com/taikonn902/motchill.git
+```
 
 Dùng TMDB API, tạo file .env:
 
